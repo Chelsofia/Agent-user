@@ -44,7 +44,7 @@ const Dashboard = () => {
                 <p className="text-xs">Total Transactions</p>
                 <h2 className="text-xl font-bold">₦543,654,080.00</h2>
                 <a
-                  href="/wallet"
+                  href="/agent/wallet"
                   className="flex items-center mt-2 text-yellow-300 hover:underline text-sm"
                 >
                   View Transactions <FaArrowRight className="ml-2" />
