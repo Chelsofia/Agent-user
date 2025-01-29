@@ -16,7 +16,7 @@ import Image from "next/image";
 import zenith from "../../../../public/assets/images/Zenith Bank svg.png";
 import Heading from "../../components/heading/Heading";
 
-const milestones = () => {
+const Milestones = () => {
 
   const mapStatusToBadgeStatus = (type: string) => {
     switch (type.toLowerCase()) {
@@ -278,4 +278,4 @@ const milestones = () => {
   );
 };
 
-export default milestones;
+export default Milestones;

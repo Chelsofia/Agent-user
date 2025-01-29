@@ -1,4 +1,4 @@
-import { ReactNode, forwardRef } from "react";
+import { JSX, ReactNode, forwardRef } from "react";
 import Label from "../label";
 import ErrorMessage from "../error.message";
 

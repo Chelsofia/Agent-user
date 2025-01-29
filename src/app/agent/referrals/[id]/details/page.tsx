@@ -1,17 +1,15 @@
 "use client";
 import { useParams, useSearchParams } from "next/navigation";
-import { referralsData } from "../../../data"; // Import the referrals data
+import { referralsData } from "../../data"; // Import the referrals data
 import {
   HiOutlineUsers,
   HiOutlineBuildingLibrary,
   HiOutlineCalendar,
 } from "react-icons/hi2";
 import Image from "next/image";
-import man from "../../../../../../../public/assets/images/agent.png";
+import man from "../../../../../../public/assets/images/agent.png";
 import GoBackButton from "@/app/components/sidebar/GoBackButton";
-import {VscCheck } from "react-icons/vsc";
-
-
+import { VscCheck } from "react-icons/vsc";
 
 export default function ReferralDetailsPage() {
   const { id } = useParams(); // Accessing the dynamic 'id' parameter from the URL
@@ -50,14 +48,14 @@ export default function ReferralDetailsPage() {
         <span className="text-xs font-semibold text-gray-700">Overview</span>
         <hr className="absolute bottom-0 left-0 w-16 border-black" />
       </div>
-      <div className="flex flex-col">
-        <h1  className="font-bold text-xl mb-1">3-bedroom duplex ensuite</h1>
+      <div className="flex flex-col ml-4">
+        <h1 className="font-bold text-xl mb-1">3-bedroom duplex ensuite</h1>
         <p className="text-gray-600">Ikeja GRA, Lagos</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-9 mt-4">
-        <div className="border p-8 rounded-lg">
-          
+      {/* Adjusted grid with max-width */}
+      <div className="grid grid-cols-2 gap-9 mt-4 w-full px-4">
+        <div className="border p-8 rounded-lg mb-8">
           <div className="mt-5 space-y-5">
             {/* Display No. of Units Purchased */}
             <div className="flex items-start gap-3">
@@ -66,8 +64,7 @@ export default function ReferralDetailsPage() {
                 <label className="text-sm font-bold">
                   Number of Units Purchased
                 </label>
-                <p>{referral.unitsPurchased}</p>{" "}
-                {/* Display the number of units purchased */}
+                <p>{referral.unitsPurchased}</p>
               </div>
             </div>
 
@@ -76,7 +73,7 @@ export default function ReferralDetailsPage() {
               <HiOutlineBuildingLibrary className="h-5 w-5 mt-1" />
               <div>
                 <label className="text-sm font-bold">Payment Type</label>
-                <p>{referral.paymentType}</p> {/* Display the payment type */}
+                <p>{referral.paymentType}</p>
               </div>
             </div>
 
@@ -85,8 +82,7 @@ export default function ReferralDetailsPage() {
               <HiOutlineCalendar className="h-5 w-5 mt-1" />
               <div>
                 <label className="text-sm font-bold">Payment Duration</label>
-                <p>{referral.paymentDuration}</p>{" "}
-                {/* Display the payment duration */}
+                <p>{referral.paymentDuration}</p>
               </div>
             </div>
 
@@ -95,7 +91,7 @@ export default function ReferralDetailsPage() {
               <HiOutlineCalendar className="h-5 w-5 mt-1" />
               <div>
                 <label className="text-sm font-bold">Months Left</label>
-                <p>{referral.monthsLeft}</p> {/* Display the months left */}
+                <p>{referral.monthsLeft}</p>
               </div>
             </div>
 
@@ -104,7 +100,7 @@ export default function ReferralDetailsPage() {
               <HiOutlineCalendar className="h-5 w-5 mt-1" />
               <div>
                 <label className="text-sm font-bold">Maturity Date</label>
-                <p>{referral.maturityDate}</p> {/* Display the maturity date */}
+                <p>{referral.maturityDate}</p>
               </div>
             </div>
           </div>

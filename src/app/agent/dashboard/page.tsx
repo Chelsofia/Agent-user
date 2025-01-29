@@ -1,8 +1,9 @@
 "use client";
-import HeaderWrapper from "../../components/sidebar/Header";
+
 import AreaChart from "../../components/chart";
 import { FaArrowRight } from "react-icons/fa";
 import { useState } from "react";
+import Link from "next/link";
 import AppWrapper from "@/app/components/wrapper";
 import ProgressBar from "../../components/progressbar";
 
@@ -32,23 +33,23 @@ const Dashboard = () => {
               <div className="bg-primary text-white p-4 rounded-md">
                 <p className="text-xs">Total number of referrals</p>
                 <h2 className="text-xl font-bold">500</h2>
-                <a
+                <Link
                   href="/agent/referrals"
                   className="flex items-center mt-2 text-yellow-300 hover:underline text-sm"
                 >
                   View Referrals <FaArrowRight className="ml-2" />
-                </a>
+                </Link>
               </div>
 
               <div className="bg-green-700 text-white p-4 rounded-md">
                 <p className="text-xs">Total Transactions</p>
                 <h2 className="text-xl font-bold">₦543,654,080.00</h2>
-                <a
+                <Link
                   href="/agent/wallet"
                   className="flex items-center mt-2 text-yellow-300 hover:underline text-sm"
                 >
                   View Transactions <FaArrowRight className="ml-2" />
-                </a>
+                </Link>
               </div>
             </div>
             <p className="py-3 font-bold">Milestones</p>
@@ -68,12 +69,12 @@ const Dashboard = () => {
                   <div className="mt-4">
                     <ProgressBar progress={milestone.progress} />
                   </div>
-                  <a
+                  <Link
                     href="/agent/referrals"
                     className="flex items-center mt-2 text-primary hover:underline text-sm"
                   >
                     View more <FaArrowRight className="ml-2" />
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>

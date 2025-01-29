@@ -41,8 +41,8 @@ export const Breadcrumb = ({
         {pathNames.length > 0 && paths !== "/dashboard" && !isUUID(pathNames[0]) && separator}
 
         {pathNames.map((link, index) => {
-          let href = `/${pathNames.slice(0, index + 1).join("/")}`;
-          let itemClasses =
+          const href = `/${pathNames.slice(0, index + 1).join("/")}`;
+          const itemClasses =
             paths === href ? `${listClasses} ${activeClasses}` : listClasses;
           let itemLink = capitalizeLinks
             ? link[0].toUpperCase() + link.slice(1, link.length)

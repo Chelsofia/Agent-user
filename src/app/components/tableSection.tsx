@@ -10,7 +10,7 @@ type TableProps = {
 
 const Table: React.FC<TableProps> = ({ headers, rows, title, progress }) => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md max-w-full">
+    <div className="p-4 bg-white rounded-lg shadow-md max-w-full mb-2">
       {progress && (
         <div className="bg-primary text-white p-4 mb-6 rounded-md">
           <p className="text-sm sm:text-xs py-2 text-center sm:text-left">
