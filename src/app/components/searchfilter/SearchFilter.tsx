@@ -45,7 +45,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({
         )}
         <button type="submit">
           <MagnifyingGlassIcon
-            className={`w-5 h-5 absolute top-[9px] left-[11px] text-gray-400`}
+            className={`w-5 h-5 absolute top-[9px] left-[9px] text-gray-400`}
           />
         </button>
       </form>

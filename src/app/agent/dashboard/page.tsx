@@ -27,8 +27,8 @@ const Dashboard = () => {
   return (
     <>
       <AppWrapper>
-        <section>
-          <div className="min-h-screen  p-8 bg-gray-50">
+      
+          <div className="min-h-screen mt-4 p-8 bg-gray-50">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
               <div className="bg-primary text-white p-4 rounded-md">
                 <p className="text-xs">Total number of referrals</p>
@@ -94,12 +94,12 @@ const Dashboard = () => {
                   </button>
                 </div>
               </div>
-              <div className="w-[100%] flex justify-center">
+              <div className="w-[100%] flex justify-center overflow-x-auto">
                 <AreaChart />
               </div>
             </div>
           </div>
-        </section>
+      
       </AppWrapper>
     </>
   );

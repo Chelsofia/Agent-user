@@ -23,15 +23,15 @@ const EarningLayout: React.FC<EarningLayoutProps> = ({ children }) => {
 
   return (
     <AppWrapper title="Withdrawals">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-col sm:flex-row mt-4 sm:space-x-4">
         <div></div>
-        {/* Adjusting the flex container to stay aligned */}
-        <div className="flex space-x-4">
+        {/* Adjusted flex container to column layout on small screens */}
+        <div className="flex flex-col sm:flex-row sm:space-x-4 w-full sm:w-auto mt-4 sm:mt-0">
           <SearchFilter
-            className="!w-[350px] mt-2"
+            className="!w-full sm:w-[350px]"
             placeholder="Search transactions by transaction ID"
           />
-          <WithdrawalFilter />
+          <WithdrawalFilter className="mt-2 sm:mt-0" />
         </div>
       </div>
       <div>{children}</div>

@@ -22,6 +22,7 @@ const Table: React.FC<TableProps> = ({ headers, rows, title, progress }) => {
 
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
+          {/* Header */}
           <thead className="bg-gray-50">
             <tr>
               {headers.map((header, index) => (
@@ -34,9 +35,41 @@ const Table: React.FC<TableProps> = ({ headers, rows, title, progress }) => {
               ))}
             </tr>
           </thead>
+
+          {/* Body */}
           <tbody className="bg-white divide-y divide-gray-200">
             {rows.map((row, rowIndex) => (
-              <tr key={rowIndex}>
+              <tr key={rowIndex} className="sm:hidden">
+                {/* Mobile: Show first and last columns normally */}
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                  {row[0]}
+                </td>
+
+                {/* Mobile: Show middle columns as list */}
+                {row.slice(1, row.length - 1).map((cell, cellIndex) => (
+                  <td
+                    key={`extra-column-${cellIndex}`}
+                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-700"
+                  >
+                    <div className="sm:hidden flex flex-col">
+                      <span className="font-semibold">
+                        {headers[cellIndex + 1]}:
+                      </span>
+                      {cell}
+                    </div>
+                  </td>
+                ))}
+
+                {/* Mobile: Show last column normally */}
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                  {row[row.length - 1]}
+                </td>
+              </tr>
+            ))}
+
+            {/* Desktop and larger: Show the normal table format */}
+            {rows.map((row, rowIndex) => (
+              <tr key={rowIndex} className="hidden sm:table-row">
                 {row.map((cell, cellIndex) => (
                   <td
                     key={cellIndex}

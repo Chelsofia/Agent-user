@@ -154,12 +154,12 @@ const Milestones = () => {
               Registration
               <div
                 className={`ml-3 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
-                  filter === "Investment"
+                  filter === "Registration"
                     ? "bg-[#ff8c00] text-white"
                     : "bg-[#E4E7EC] text-[#344054]"
                 }`}
               >
-                {counts["Investment"]}
+                {counts["Registration"]}
               </div>
             </button>
 

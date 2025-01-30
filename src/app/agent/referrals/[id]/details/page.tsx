@@ -24,9 +24,9 @@ export default function ReferralDetailsPage() {
   }
 
   return (
-    <div className="mt-6">
+    <div className="mt-6 px-4 sm:px-6 md:px-8 max-w-screen-xl mx-auto ">
       <GoBackButton />
-      <div className="flex items-start gap-3 p-3">
+      <div className="flex items-start gap-4 sm:gap-6 p-3">
         <div className="relative">
           <Image
             src={man}
@@ -53,10 +53,10 @@ export default function ReferralDetailsPage() {
         <p className="text-gray-600">Ikeja GRA, Lagos</p>
       </div>
 
-      {/* Adjusted grid with max-width */}
-      <div className="grid grid-cols-2 gap-9 mt-4 w-full px-4">
-        <div className="border p-8 rounded-lg mb-8">
-          <div className="mt-5 space-y-5">
+      {/* Adjusted to a single column layout */}
+      <div className="grid grid-cols-1 gap-6 mt-4 mb-4">
+        <div className="border p-6 sm:p-8 rounded-lg">
+          <div className="space-y-5">
             {/* Display No. of Units Purchased */}
             <div className="flex items-start gap-3">
               <HiOutlineUsers className="h-5 w-5 mt-1" />

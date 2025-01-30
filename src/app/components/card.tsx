@@ -17,49 +17,37 @@ const WalletCard = () => {
       title: "Total commissions",
       amount: " ₦140,000,000.00",
       bg: "bg-secondary",
-    },
-    {
-      title: "Total investment commissions",
-      amount: " ₦20,000,000.00",
-      bg: "bg-primary",
-      button_color: "bg-white text-primary",
-    },
-    {
-      title: "Total properties commissions",
-      amount: " ₦20,000,000.00",
-      bg: "bg-primary",
-      button_color: "bg-white text-primary",
-    },
-    {
-      title: "Total registration commissions",
-      amount: " ₦20,000,000.00",
-      bg: "bg-secondary",
+      button_color: "bg-primary text-white",
     },
   ];
 
   return (
-    <div className="grid grid-cols-2 gap-8">
+    <div className="grid gap-8">
       {commissions.map((item, i) => (
         <div
           key={i}
           className={`${item.bg} p-6 rounded-md w-full flex flex-col justify-between h-[150px] relative`}
         >
+          {/* Aligning the title and icon in one flex container */}
           <div className="flex items-center justify-between">
-            <p className="text-xs text-white">{item.title}</p>
-            <button onClick={toggleVisibility} className="ml-2 text-white">
-              {isAmountVisible ? (
-                <EyeIcon className="w-5 h-5" />
-              ) : (
-                <EyeSlashIcon className="w-5 h-5" />
-              )}
-            </button>
+            <div className="flex items-center gap-1">
+              <p className="text-xs text-white">{item.title}</p>
+              <button onClick={toggleVisibility} className="text-white">
+                {isAmountVisible ? (
+                  <EyeIcon className="w-5 h-5" />
+                ) : (
+                  <EyeSlashIcon className="w-5 h-5" />
+                )}
+              </button>
+            </div>
           </div>
           {isAmountVisible && (
             <h2 className="text-2xl text-white font-bold mt-4 flex-grow">
               {item.amount}
             </h2>
           )}
-          <div className="absolute bottom-4 right-4 w-auto">
+          {/* Positioning the button on the middle-right */}
+          <div className="flex justify-end items-center h-full">
             <button
               onClick={() => showModal(true)}
               className={`${

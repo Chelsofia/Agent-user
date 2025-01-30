@@ -4,6 +4,7 @@ import { CalendarIcon } from "@heroicons/react/24/outline";
 import { BellIcon, UserIcon } from "@heroicons/react/24/solid";
 import { ReactNode } from "react";
 import { useModal } from "../modal";
+import { HiOutlineSquares2X2 } from "react-icons/hi2";
 import { ProfileDetails } from "./ProfileDetails";
 import { Menu } from "iconsax-react";
 
@@ -52,7 +53,8 @@ const HeaderWrapper = ({
                 onClick={onClick}
                 className="w-[40px] h-[40px] lg:hidden flex justify-center items-center bg-[#ff8c001a] rounded-full"
               >
-                <Menu variant="Bold" className="w-5 h-5 text-secondary" />
+                <HiOutlineSquares2X2 className="w-5 h-5 text-secondary"
+                />
               </button>
               <div className="relative">
                 <BellIcon className="w-6 h-6 text-primary" />
@@ -73,9 +75,7 @@ const HeaderWrapper = ({
         </div>
         {title && (
           <div className="lg:flex items-center justify-between lg:pr-12 lg:pl-[280px] px-8 border-b  py-4">
-            <h1 className="text-[18px] font-[600]">
-             {title}
-            </h1>
+            <h1 className="text-[18px] font-[600]">{title}</h1>
             <div className="mt-4 lg:mt-0">{children}</div>
           </div>
         )}
