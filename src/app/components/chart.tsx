@@ -21,7 +21,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  Filler 
+  Filler
 );
 
 const data = {
@@ -45,19 +45,19 @@ const data = {
       data: [10, 20, 30, 50, 50, 70, 80, 100, 90, 100, 110, 120],
       borderColor: "rgba(245, 102, 48, 1)",
       backgroundColor: "rgba(255, 236, 229, 1)",
-      fill: true, 
-      tension: 0.4, 
-      pointRadius: 0, 
+      fill: true,
+      tension: 0.4,
+      pointRadius: 0,
     },
   ],
 };
 
 const options: ChartOptions<"line"> = {
   responsive: true,
-  maintainAspectRatio: false, 
+  maintainAspectRatio: false,
   plugins: {
     legend: {
-      display: false, 
+      display: false,
     },
     tooltip: {
       mode: "index",
@@ -72,13 +72,13 @@ const options: ChartOptions<"line"> = {
         color: "#F56630",
       },
       grid: {
-        display: false, 
+        display: false,
       },
       ticks: {
-        autoSkip: false, 
-        maxRotation: 0, 
+        autoSkip: false, // Show all labels and let scrolling handle overflow
+        maxRotation: 0,
         minRotation: 0,
-        padding: 20, 
+        padding: 10,
       },
     },
     y: {
@@ -89,9 +89,8 @@ const options: ChartOptions<"line"> = {
       },
       beginAtZero: true,
       ticks: {
-        stepSize: 20, 
+        stepSize: 20,
         callback: function (tickValue) {
-         
           if (typeof tickValue === "number") {
             return `₦ ${tickValue}M`;
           }
@@ -104,8 +103,10 @@ const options: ChartOptions<"line"> = {
 
 const AreaChart: FC = () => {
   return (
-    <div className="w-full lg:w-[100%] h-[500px]">
-      <Line data={data} options={options} />
+    <div className="overflow-x-auto">
+      <div className="w-[600px] md:w-[800px] lg:w-[1000px] h-[300px] sm:h-[400px] md:h-[500px] p-4">
+        <Line data={data} options={options} />
+      </div>
     </div>
   );
 };

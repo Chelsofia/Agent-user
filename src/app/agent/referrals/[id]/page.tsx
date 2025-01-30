@@ -95,27 +95,28 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="relative inline-block ml-4">
+      <div className="relative inline-block ml-12">
         <span className="text-xs font-semibold text-gray-700">Overview</span>
         <hr className="absolute bottom-0 left-0 w-16 border-black" />
       </div>
 
-      <div className="flex gap-4 justify-center mt-4">
-        <div className="bg-white p-4 rounded-md border w-[50%] flex flex-col justify-between h-[150px]">
-          <p className="text-xs text-[#667185]">Total investments</p>
-          <h2 className="text-xl text-[#667185] font-bold mt-auto">
-            ₦3,000,000.00
-          </h2>
-        </div>
-        <div className="bg-white p-4 rounded-md border w-[50%] flex flex-col justify-between h-[150px]">
-          <p className="text-xs text-[#667185]">Total Commission Earned</p>
-          <h2 className="text-xl text-[#667185] font-bold mt-auto">
-            ₦3,000,000.00
-          </h2>
-        </div>
-      </div>
+     <div className="flex flex-col md:flex-row gap-4 justify-center mt-4">
+  <div className="bg-white p-4 rounded-md border w-full md:w-[45%] flex flex-col justify-between h-[150px]">
+    <p className="text-xs text-[#667185]">Total investments</p>
+    <h2 className="text-xl text-[#667185] font-bold mt-auto">
+      ₦3,000,000.00
+    </h2>
+  </div>
+  <div className="bg-white p-4 rounded-md border w-full md:w-[45%] flex flex-col justify-between h-[150px]">
+    <p className="text-xs text-[#667185]">Total Commission Earned</p>
+    <h2 className="text-xl text-[#667185] font-bold mt-auto">
+      ₦3,000,000.00
+    </h2>
+  </div>
+</div>
 
-      <div className="mt-4 flex gap-4">
+
+      <div className="mt-4 flex gap-4 justify-center">
         <SearchBar
           onChange={handleSearchChange}
           placeholder="Search customers by name or user ID"

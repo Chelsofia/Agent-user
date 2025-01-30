@@ -83,7 +83,7 @@ const Referrals = () => {
           <button
             onClick={() => handleFilterChange("All")}
             className={`flex items-center px-3 py-2 text-sm rounded border ${
-              filter === "Registration"
+              filter === "All"
                 ? "bg-[#ffece5] text-black"
                 : "bg-[#fff] text-gray-700"
             }`}
@@ -93,17 +93,17 @@ const Referrals = () => {
             ) : (
               <FaUserCheck className="mr-3" />
             )}
-          All Referrals
+            All Referrals
             <div
               className={`ml-3 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
                 filter === "All"
                   ? "bg-[#ff8c00] text-white"
                   : "bg-[#E4E7EC] text-[#344054]"
-              }`} >
+              }`}
+            >
               {counts["All"]}
             </div>
           </button>
-
 
           <button
             onClick={() => handleFilterChange("Registration")}
@@ -111,7 +111,8 @@ const Referrals = () => {
               filter === "Registration"
                 ? "bg-[#ffece5] text-black"
                 : "bg-[#fff] text-gray-700"
-            }`} >
+            }`}
+          >
             {filter === "Registration" ? (
               <FaUserCheck className="mr-3 text-[#ff8c00]" />
             ) : (
@@ -197,7 +198,6 @@ const Referrals = () => {
         title={filter.toLowerCase()}
         headers={["Full name", "Commision Type", "Date Onboarded", "Actions"]}
         rows={rows}
-      
       />
     </div>
   );
