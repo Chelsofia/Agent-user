@@ -24,52 +24,54 @@ export const ProfileDetails = () => {
     role: "administrator",
   };
   return (
-    <div>
-      <h5 className="text-secondary font-[600] text-[20px]">Profile Details</h5>
-      <div className="flex justify-center flex-col items-center gap-4">
+    <div className="p-3 sm:p-4 lg:p-5">
+      <h5 className="text-secondary font-semibold text-sm sm:text-base">
+        Profile Details
+      </h5>
+      <div className="flex justify-center flex-col items-center gap-3">
         <Avatar
           className="!bg-[#FFECE5]"
-          size="40"
+          size="32"
           name={organization?.full_name}
         />
       </div>
-      <div className=" grid grid-cols-12 mt-6">
-        <div className="flex items-center gap-5 px-3 border-b py-4 col-span-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 mt-4">
+        <div className="flex items-center gap-3 px-2 border-b py-3 col-span-1 sm:col-span-1 lg:col-span-6">
           <span className="text-gray-500">
-            <UserIcon className="w-5 h-5" />
+            <UserIcon className="w-4 h-4" />
           </span>
           <div>
-            <h4 className="text-[12px] text-gray-500">Full Name</h4>
-            <p className="font-[500] text-[14px]">{`${organization?.full_name}`}</p>
+            <h4 className="text-xs text-gray-500">Full Name</h4>
+            <p className="font-medium text-xs">{`${organization?.full_name}`}</p>
           </div>
         </div>
-        <div className="flex items-center gap-5 px-3 border-b py-4 col-span-6 ">
+        <div className="flex items-center gap-3 px-2 border-b py-3 col-span-1 sm:col-span-1 lg:col-span-6">
           <span className="text-gray-500">
-            <EnvelopeIcon className="w-5 h-5" />
+            <EnvelopeIcon className="w-4 h-4" />
           </span>
           <div>
-            <h4 className="text-[12px] text-gray-500">Email</h4>
-            <p className="font-[500] text-[14px] break-words">
+            <h4 className="text-xs text-gray-500">Email</h4>
+            <p className="font-medium text-xs break-words">
               {organization?.emails}
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-5 px-3 border-b py-4 col-span-6">
+        <div className="flex items-center gap-3 px-2 border-b py-3 col-span-1 sm:col-span-1 lg:col-span-6">
           <span className="text-gray-500">
-            <PhoneArrowDownLeftIcon className="w-5 h-5" />
+            <PhoneArrowDownLeftIcon className="w-4 h-4" />
           </span>
           <div>
-            <h4 className="text-[12px] text-gray-500">Location</h4>
-            <p className="font-[500] text-[14px]">{organization?.address}</p>
+            <h4 className="text-xs text-gray-500">Location</h4>
+            <p className="font-medium text-xs">{organization?.address}</p>
           </div>
         </div>
-        <div className="flex items-center gap-5 px-3  py-4 col-span-6 border-b">
+        <div className="flex items-center gap-3 px-2 py-3 col-span-1 sm:col-span-1 lg:col-span-6 border-b">
           <span className="text-gray-500">
-            <UserCircleIcon className="w-5 h-5" />
+            <UserCircleIcon className="w-4 h-4" />
           </span>
           <div>
-            <h4 className="text-[12px] text-gray-500">Status</h4>
-            <p className="font-[500] text-[14px]">
+            <h4 className="text-xs text-gray-500">Status</h4>
+            <p className="font-medium text-xs">
               <Badge>{organization?.status}</Badge>
             </p>
           </div>

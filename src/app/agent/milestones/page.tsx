@@ -114,6 +114,31 @@ const Milestones = () => {
         <div className="my-7 flex justify-between items-center gap-2">
           <div className="flex flex-wrap gap-4 md:gap-6 md:flex-nowrap">
             <button
+              onClick={() => handleFilterChange("All")}
+              className={`flex items-center px-3 py-2 text-sm rounded border ${
+                filter === "All"
+                  ? "bg-[#ffece5] text-black"
+                  : "bg-[#fff] text-gray-700"
+              }`}
+            >
+              {filter === "All" ? (
+                <FaUserCheck className="mr-3 text-[#ff8c00]" />
+              ) : (
+                <FaUserCheck className="mr-3" />
+              )}
+              All milestones
+              <div
+                className={`ml-3 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
+                  filter === "All"
+                    ? "bg-[#ff8c00] text-white"
+                    : "bg-[#E4E7EC] text-[#344054]"
+                }`}
+              >
+                {counts["All"]}
+              </div>
+            </button>
+
+            <button
               onClick={() => handleFilterChange("Registration")}
               className={`flex items-center px-3 py-2 text-sm rounded border ${
                 filter === "Registration"
@@ -122,31 +147,6 @@ const Milestones = () => {
               }`}
             >
               {filter === "Registration" ? (
-                <FaUserCheck className="mr-3 text-[#ff8c00]" />
-              ) : (
-                <FaUserCheck className="mr-3" />
-              )}
-              All milestones
-              <div
-                className={`ml-3 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
-                  filter === "Registration"
-                    ? "bg-[#ff8c00] text-white"
-                    : "bg-[#E4E7EC] text-[#344054]"
-                }`}
-              >
-                {counts["Registration"]}
-              </div>
-            </button>
-
-            <button
-              onClick={() => handleFilterChange("Investment")}
-              className={`flex items-center px-3 py-2 text-sm rounded border ${
-                filter === "Investment"
-                  ? "bg-[#ffece5] text-black"
-                  : "bg-[#fff] text-gray-700"
-              }`}
-            >
-              {filter === "Investment" ? (
                 <HiOutlineUser className="mr-3 text-[#ff8c00]" />
               ) : (
                 <HiOutlineUser className="mr-3" />
