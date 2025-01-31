@@ -46,8 +46,8 @@ const WalletCard = () => {
               {item.amount}
             </h2>
           )}
-          {/* Positioning the button on the middle-right */}
-          <div className="flex justify-end items-center h-full">
+          {/* Adjusting button with margin-bottom for smaller screens */}
+          <div className="mt-4 sm:mt-0 mb-4 sm:mb-0 flex justify-center sm:absolute sm:right-6 sm:top-1/2 sm:transform sm:-translate-y-1/2 w-full sm:w-auto">
             <button
               onClick={() => showModal(true)}
               className={`${

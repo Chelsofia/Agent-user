@@ -179,19 +179,20 @@ const Referrals = () => {
               {counts["Purchase"]}
             </div>
           </button>
-
-          <button
-            onClick={() => handleFilterChange("Filter")}
-            className={`flex items-center text-sm px-3 py-2 rounded border ${
-              filter === ""
-                ? "bg-yellow-500 text-white"
-                : "bg-white text-gray-700"
-            } hover:bg-gray-300`}
-          >
-            <VscFilter className="mr-2" />
-            <span>Filter</span>
-          </button>
         </div>
+
+        {/* Move Filter Button to the Right */}
+        <button
+          onClick={() => handleFilterChange("Filter")}
+          className={`flex items-center text-sm px-3 py-2 rounded border ${
+            filter === ""
+              ? "bg-yellow-500 text-white"
+              : "bg-white text-gray-700"
+          } hover:bg-gray-300 ml-auto`}
+        >
+          <VscFilter className="mr-2" />
+          <span>Filter</span>
+        </button>
       </div>
 
       <Table

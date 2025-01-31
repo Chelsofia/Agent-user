@@ -113,8 +113,8 @@ const ProfileContent: React.FC = () => {
               <Input
                 id="email"
                 type="email"
-                label="Email"
-                placeholder="Enter your email"
+                label="Email address"
+                placeholder="amosmoses@gmail.com"
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
@@ -128,10 +128,46 @@ const ProfileContent: React.FC = () => {
               <Input
                 id="phone"
                 label="Phone Number"
-                placeholder="Enter your phone number"
+                placeholder="08038295418"
                 {...register("phone", { required: "Phone number is required" })}
                 error={errors.phone?.message}
               />
+
+              <Input
+                id="bank-account"
+                label="Bank Account Name"
+                placeholder="Amos Moses"
+                {...register("Name", {
+                  required: "Bank account name is required",
+                })}
+                error={errors.bankAccount?.message}
+              />
+
+              <div className="flex flex-col sm:flex-row sm:space-x-4">
+                <div className="flex-1">
+                  <Input
+                    id="account-no"
+                    type="text"
+                    label="Account Number"
+                    placeholder="056370892"
+                    {...register("accountNo", {
+                      required: "Account number is required",
+                    })}
+                    error={errors.accountNo?.message}
+                  />
+                </div>
+                <div className="flex-1">
+                  <Input
+                    id="bank-name"
+                    label="Bank Name"
+                    placeholder="GT Bank Plc"
+                    {...register("Name", {
+                      required: "Bank name is required",
+                    })}
+                    error={errors.bankName?.message}
+                  />
+                </div>
+              </div>
             </form>
           </div>
         </section>
