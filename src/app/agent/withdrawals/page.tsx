@@ -190,7 +190,7 @@ const Earnings = () => {
                   </div>
                   <div className="flex justify-between border-b border-gray-200 pb-2">
                     <div className="font-semibold">
-                      Receiver's Account Number:
+                      Receiver&apos;s Account Number:
                     </div>
                     <div className="text-right flex-1">
                       {selectedItem.act_no}
@@ -198,7 +198,7 @@ const Earnings = () => {
                   </div>
                   <div className="flex justify-between border-b border-gray-200 pb-2">
                     <div className="font-semibold">
-                      Receiver's Account Name:
+                      Receiver&apos;s Account Name:
                     </div>
                     <div className="text-right flex-1">
                       {selectedItem.act_name}
