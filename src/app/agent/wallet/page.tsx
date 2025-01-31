@@ -96,127 +96,135 @@ export default function WalletPage() {
       <AppWrapper title="Wallet">
         <div className="p-6 bg-white w-full">
           <WalletCard />
+
           <br />
           <div className="mb-4 flex flex-col sm:flex-row gap-4">
+            {/* Search Bar */}
             <div className="w-full sm:w-auto">
               <SearchFilter
-                placeholder="Search transactions by ID"
-                className="!w-full sm:!w-[350px]"
+                placeholder="Search transactions by Transaction ID"
+                className="!w-full sm:!w-[250px]"
               />
             </div>
+
             {/* Filter buttons */}
-            <div className="flex flex-wrap gap-4 sm:flex-nowrap">
-              <button
-                onClick={() => handleFilterChange("All")}
-                className={`flex items-center text-sm px-1 py-1 rounded border ${
-                  filter === "All"
-                    ? "bg-[#ffece5] text-black"
-                    : "bg-[#fff] text-gray-700"
-                }`}
-              >
-                {filter === "All" ? (
-                  <HiOutlineCheckCircle className="mr-2 text-[#ff8c00]" />
-                ) : (
-                  <HiOutlineCheckCircle className="mr-2" />
-                )}
-                Total Transactions
-                <div
-                  className={`ml-2 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
+            <div className="flex flex-wrap gap-2 sm:flex-nowrap items-center w-full">
+              <div className="flex flex-wrap gap-2 sm:flex-nowrap">
+                <button
+                  onClick={() => handleFilterChange("All")}
+                  className={`flex items-center text-sm px-2 py-1 rounded border ${
                     filter === "All"
-                      ? "bg-[#ff8c00] text-white"
-                      : "bg-[#E4E7EC] text-[#344054]"
+                      ? "bg-[#ffece5] text-black"
+                      : "bg-[#fff] text-gray-700"
                   }`}
                 >
-                  {counts["All"]}
-                </div>
-              </button>
+                  {filter === "All" ? (
+                    <HiOutlineCheckCircle className="mr-1 text-[#ff8c00]" />
+                  ) : (
+                    <HiOutlineCheckCircle className="mr-1" />
+                  )}
+                  Total Transactions
+                  <div
+                    className={`ml-2 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
+                      filter === "All"
+                        ? "bg-[#ff8c00] text-white"
+                        : "bg-[#E4E7EC] text-[#344054]"
+                    }`}
+                  >
+                    {counts["All"]}
+                  </div>
+                </button>
 
-              <button
-                onClick={() => handleFilterChange("Successful")}
-                className={`flex items-center px-1 py-1 rounded border text-sm ${
-                  filter === "Successful"
-                    ? "bg-[#ffece5] text-black"
-                    : "bg-[#fff] text-gray-700"
-                }`}
-              >
-                {filter === "Successful" ? (
-                  <HiOutlineCheckCircle className="mr-2 text-[#ff8c00]" />
-                ) : (
-                  <HiOutlineCheckCircle className="mr-2" />
-                )}
-                Successful
-                <div
-                  className={`ml-2 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
+                <button
+                  onClick={() => handleFilterChange("Successful")}
+                  className={`flex items-center text-sm px-2 py-1 rounded border ${
                     filter === "Successful"
-                      ? "bg-[#ff8c00] text-white"
-                      : "bg-[#E4E7EC] text-[#344054]"
+                      ? "bg-[#ffece5] text-black"
+                      : "bg-[#fff] text-gray-700"
                   }`}
                 >
-                  {counts["Successful"]}
-                </div>
-              </button>
+                  {filter === "Successful" ? (
+                    <HiOutlineCheckCircle className="mr-1 text-[#ff8c00]" />
+                  ) : (
+                    <HiOutlineCheckCircle className="mr-1" />
+                  )}
+                  Successful
+                  <div
+                    className={`ml-2 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
+                      filter === "Successful"
+                        ? "bg-[#ff8c00] text-white"
+                        : "bg-[#E4E7EC] text-[#344054]"
+                    }`}
+                  >
+                    {counts["Successful"]}
+                  </div>
+                </button>
 
-              <button
-                onClick={() => handleFilterChange("Pending")}
-                className={`flex items-center text-sm px-1 py-1 rounded border ${
-                  filter === "Pending"
-                    ? "bg-[#ffece5] text-black"
-                    : "bg-[#fff] text-gray-700"
-                }`}
-              >
-                {filter === "Pending" ? (
-                  <HiOutlineExclamationCircle className="mr-2 text-[#ff8c00]" />
-                ) : (
-                  <HiOutlineExclamationCircle className="mr-2" />
-                )}
-                Pending
-                <div
-                  className={`ml-2 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
+                <button
+                  onClick={() => handleFilterChange("Pending")}
+                  className={`flex items-center text-sm px-2 py-1 rounded border ${
                     filter === "Pending"
-                      ? "bg-[#ff8c00] text-white"
-                      : "bg-[#E4E7EC] text-[#344054]"
+                      ? "bg-[#ffece5] text-black"
+                      : "bg-[#fff] text-gray-700"
                   }`}
                 >
-                  {counts["Pending"]}
-                </div>
-              </button>
+                  {filter === "Pending" ? (
+                    <HiOutlineExclamationCircle className="mr-1 text-[#ff8c00]" />
+                  ) : (
+                    <HiOutlineExclamationCircle className="mr-1" />
+                  )}
+                  Pending
+                  <div
+                    className={`ml-2 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
+                      filter === "Pending"
+                        ? "bg-[#ff8c00] text-white"
+                        : "bg-[#E4E7EC] text-[#344054]"
+                    }`}
+                  >
+                    {counts["Pending"]}
+                  </div>
+                </button>
 
-              <button
-                onClick={() => handleFilterChange("Failed")}
-                className={`flex items-center text-sm px-1 py-1 rounded border ${
-                  filter === "Failed"
-                    ? "bg-[#ffece5] text-black"
-                    : "bg-[#fff] text-gray-700"
-                }`}
-              >
-                {filter === "Failed" ? (
-                  <HiOutlineXCircle className="mr-2 text-[#ff8c00]" />
-                ) : (
-                  <HiOutlineXCircle className="mr-2 " />
-                )}
-                Failed
-                <div
-                  className={`ml-2 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
+                <button
+                  onClick={() => handleFilterChange("Failed")}
+                  className={`flex items-center text-sm px-2 py-1 rounded border ${
                     filter === "Failed"
-                      ? "bg-[#ff8c00] text-white"
-                      : "bg-[#E4E7EC] text-[#344054]"
+                      ? "bg-[#ffece5] text-black"
+                      : "bg-[#fff] text-gray-700"
                   }`}
                 >
-                  {counts["Failed"]}
-                </div>
-              </button>
+                  {filter === "Failed" ? (
+                    <HiOutlineXCircle className="mr-1 text-[#ff8c00]" />
+                  ) : (
+                    <HiOutlineXCircle className="mr-1" />
+                  )}
+                  Failed
+                  <div
+                    className={`ml-2 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
+                      filter === "Failed"
+                        ? "bg-[#ff8c00] text-white"
+                        : "bg-[#E4E7EC] text-[#344054]"
+                    }`}
+                  >
+                    {counts["Failed"]}
+                  </div>
+                </button>
+              </div>
 
-              <button
-                onClick={() => handleFilterChange("Filter")}
-                className={`flex items-center text-sm px-1 py-1 rounded border ${
-                  filter === ""
-                    ? "bg-yellow-500 text-white"
-                    : "bg-white text-gray-700"
-                } hover:bg-gray-300`}
-              >
-                <VscFilter className="mr-2" />
-                <span className="mr-2">Filter</span>
-              </button>
+              {/* Move the Filter button to the right */}
+              <div className="ml-auto">
+                <button
+                  onClick={() => handleFilterChange("Filter")}
+                  className={`flex items-center text-sm px-2 py-1 rounded border ${
+                    filter === ""
+                      ? "bg-yellow-500 text-white"
+                      : "bg-white text-gray-700"
+                  } hover:bg-gray-300`}
+                >
+                  <VscFilter className="mr-1" />
+                  <span>Filter</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -228,12 +236,10 @@ export default function WalletPage() {
             />
           </div>
 
-          <Modal
-            open={isModalOpen}
-            setOpen={setIsModalOpen}
-           
-          >
-            <Heading className="ml-16">Transaction Details</Heading>
+          <Modal open={isModalOpen} setOpen={setIsModalOpen}>
+            <Heading className="ml-16 text-secondary">
+              Transaction Details
+            </Heading>
             {selectedTransaction && (
               <div className="p-4">
                 <div className="border-b border-gray-200 pb-4 mb-4">
@@ -280,6 +286,22 @@ export default function WalletPage() {
                       </Badge>
                     </div>
                   </div>
+                </div>
+
+                <div className="flex justify-between mt-4">
+                  <button
+                    onClick={() => {}}
+                    className="bg- text-primary border border-primary py-2 px-4 rounded"
+                  >
+                    Share Receipt
+                  </button>
+
+                  <button
+                    onClick={() => {}}
+                    className="bg-primary text-white py-2 px-4 rounded"
+                  >
+                    Download Receipt
+                  </button>
                 </div>
               </div>
             )}

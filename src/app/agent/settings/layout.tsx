@@ -18,26 +18,26 @@ const SettingsLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <AppWrapper title="Settings">
-      <div>
-        {/* Tabs */}
-        <div className="flex flex-wrap my-6 gap-4 sm:flex-row sm:gap-8">
-          {navigation.map((link, i) => (
-            <Link
-              href={link.href}
-              key={i}
-              className={`px-4 py-2 w-full sm:w-auto bg-white shadow-md text-center ${
-                isActive(link.href)
-                  ? "text-gray-800 font-bold bg-gray-300"
-                  : "text-gray-600"
-              }`}
-            >
-              {link.title}
-            </Link>
-          ))}
-        </div>
-
-        <div>{children}</div>
-      </div>
+     <nav className="w-full max-w-4xl mb-4 mt-4">
+          <div className="rounded-lg">
+            <div className="flex border overflow-hidden rounded-xl w-fit">
+              {navigation.map((item, i) => (
+                <Link
+                  key={i}
+                  href={item?.href}
+                  className={` border-r px-6 py-2 block ${
+                    isActive(item?.href)
+                      ? "bg-primary text-white"
+                      : " text-gray-500"
+                  }`}
+                >
+                  {item?.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </nav>
+        <div className="p-4 bg-white rounded-b-lg mt-4">{children}</div>
     </AppWrapper>
   );
 };

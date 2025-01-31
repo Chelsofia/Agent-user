@@ -1,43 +1,24 @@
 "use client";
-
+import { useState } from "react";
 import { Badge } from "@/app/components/badge";
 import { ConditionalRender } from "@/app/components/conditional_renderer";
 import { useModal } from "@/app/components/modal";
 import { Table } from "@/app/components/table/Table";
-import { useState } from "react";
-import { formatNaira } from "@/app/utils/currencyFormatter";
 import { Fragment } from "react";
 import Link from "next/link";
-import { HiOutlineUser } from "react-icons/hi";
 import { FaUserCheck } from "react-icons/fa6";
+import { HiOutlineUser } from "react-icons/hi";
 import { VscFilter } from "react-icons/vsc";
 import { WithdrawalFilter } from "./filter/filter";
-import Image from "next/image";
-import zenith from "../../../../public/assets/images/Zenith Bank svg.png";
 import Heading from "../../components/heading/Heading";
 
 const Milestones = () => {
+  const [filter, setFilter] = useState<string>("All");
 
-  const mapStatusToBadgeStatus = (type: string) => {
-    switch (type.toLowerCase()) {
-      case "successful":
-        return "success";
-      case "failed":
-        return "failed";
-      case "pending":
-        return "pending";
-      default:
-        return undefined;
-    }
+  const handleFilterChange = (newFilter: string) => {
+    setFilter(newFilter);
   };
 
-  const [filter, setFilter] = useState<string>("All"); 
- const handleFilterChange = (newFilter: string) => {
-   setFilter(newFilter);
- };
-
-
-  
   const data = [
     {
       id: "1",
@@ -48,7 +29,6 @@ const Milestones = () => {
       reward: "Car",
       date: "10/12/2024 11:59pm",
     },
-
     {
       id: "2",
       name: "Amos Moses",
@@ -96,15 +76,30 @@ const Milestones = () => {
     },
   ];
 
+  const filteredData = data.filter(
+    (item) => filter === "All" || item.type === filter
+  );
+
   const counts = {
-      All: data.length,
-      Registration: data.filter((item) => item.type === "Registration")
-        .length,
-      Investment: data.filter((item) => item.type === "Investment")
-        .length,
-      Purchase: data.filter((item) => item.type === "Purchase").length,
-    };
-  
+    All: data.length,
+    Registration: data.filter((item) => item.type === "Registration").length,
+    Investment: data.filter((item) => item.type === "Investment").length,
+    Purchase: data.filter((item) => item.type === "Purchase").length,
+  };
+
+  const mapStatusToBadgeStatus = (type: string) => {
+    switch (type.toLowerCase()) {
+      case "successful":
+        return "success";
+      case "failed":
+        return "failed";
+      case "pending":
+        return "pending";
+      default:
+        return undefined;
+    }
+  };
+
   const { Modal, showModal } = useModal();
   const isFetching = false;
 
@@ -112,6 +107,7 @@ const Milestones = () => {
     <div>
       <ConditionalRender isFetching={isFetching}>
         <div className="my-7 flex justify-between items-center gap-2">
+          {/* Left Side: Filter Buttons */}
           <div className="flex flex-wrap gap-4 md:gap-6 md:flex-nowrap">
             <button
               onClick={() => handleFilterChange("All")}
@@ -121,11 +117,7 @@ const Milestones = () => {
                   : "bg-[#fff] text-gray-700"
               }`}
             >
-              {filter === "All" ? (
-                <FaUserCheck className="mr-3 text-[#ff8c00]" />
-              ) : (
-                <FaUserCheck className="mr-3" />
-              )}
+              <FaUserCheck className="mr-3" />
               All milestones
               <div
                 className={`ml-3 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
@@ -146,11 +138,7 @@ const Milestones = () => {
                   : "bg-[#fff] text-gray-700"
               }`}
             >
-              {filter === "Registration" ? (
-                <HiOutlineUser className="mr-3 text-[#ff8c00]" />
-              ) : (
-                <HiOutlineUser className="mr-3" />
-              )}
+              <HiOutlineUser className="mr-3" />
               Registration
               <div
                 className={`ml-3 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
@@ -171,12 +159,8 @@ const Milestones = () => {
                   : "bg-[#fff] text-gray-700"
               }`}
             >
-              {filter === "Investment" ? (
-                <HiOutlineUser className="mr-3 text-[#ff8c00]" />
-              ) : (
-                <HiOutlineUser className="mr-3" />
-              )}
-             Investment
+              <HiOutlineUser className="mr-3" />
+              Investment
               <div
                 className={`ml-3 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
                   filter === "Investment"
@@ -187,6 +171,7 @@ const Milestones = () => {
                 {counts["Investment"]}
               </div>
             </button>
+
             <button
               onClick={() => handleFilterChange("Purchase")}
               className={`flex items-center px-3 py-2 text-sm rounded border ${
@@ -195,11 +180,7 @@ const Milestones = () => {
                   : "bg-[#fff] text-gray-700"
               }`}
             >
-              {filter === "Purchase" ? (
-                <HiOutlineUser className="mr-3 text-[#ff8c00]" />
-              ) : (
-                <HiOutlineUser className="mr-3" />
-              )}
+              <HiOutlineUser className="mr-3" />
               Purchase
               <div
                 className={`ml-3 rounded-lg h-4 w-4 flex items-center justify-center text-xs ${
@@ -211,14 +192,17 @@ const Milestones = () => {
                 {counts["Purchase"]}
               </div>
             </button>
+          </div>
 
+          {/* Right Side: Filter Button */}
+          <div>
             <button
               onClick={() => handleFilterChange("Filter")}
               className={`flex items-center text-sm px-3 py-2 rounded border ${
                 filter === ""
                   ? "bg-yellow-500 text-white"
                   : "bg-white text-gray-700"
-              } hover:bg-gray-300`}
+              }`}
             >
               <VscFilter className="mr-2" />
               <span>Filter</span>
@@ -238,7 +222,7 @@ const Milestones = () => {
           ]}
           isFetching={isFetching}
         >
-          {data?.map((item: any, i) => (
+          {filteredData.map((item: any, i) => (
             <Fragment key={i}>
               <Table.Cell className="text-sm py-6 px-4">
                 {item?.name}
@@ -248,7 +232,6 @@ const Milestones = () => {
                   {item.type}
                 </Badge>
               </Table.Cell>
-
               <Table.Cell className="text-sm py-6 px-4">
                 {item?.achieved}
               </Table.Cell>
@@ -261,7 +244,6 @@ const Milestones = () => {
               <Table.Cell className="text-sm py-6 px-4">
                 {item?.date}
               </Table.Cell>
-
               <Table.Cell className="text-sm cursor-pointer py-6 text-secondary font-bold px-2">
                 <Link href={`/agent/milestones/${item.id}`}>
                   <span>View More</span>
@@ -270,6 +252,7 @@ const Milestones = () => {
             </Fragment>
           ))}
         </Table>
+
         <Modal>
           <Heading>Withdrawal details</Heading>
         </Modal>

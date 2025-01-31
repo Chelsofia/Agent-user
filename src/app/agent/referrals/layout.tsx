@@ -1,7 +1,9 @@
 "use client";
+
 import { useState } from "react";
 import AppWrapper from "@/app/components/wrapper";
-import SearchBar from "../../components/searchBar";
+import SearchBar from "@/app/components/searchBar";
+import SearchFilter from "@/app/components/searchfilter/SearchFilter";
 
 const ReferralsLayout = ({ children }: { children: React.ReactNode }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,10 +15,16 @@ const ReferralsLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div>
-      <AppWrapper title="Refferals">
-        <div className="flex justify-end mb-4">
-         
-        </div>
+      <AppWrapper
+        title="Referrals"
+        headerChildren={
+          <SearchFilter
+            className="lg:!w-[372px] !w-full"
+            placeholder="Search customers by name or user ID"
+          />
+        }
+      >
+        <div className="flex justify-end mb-4"></div>
         {children}
       </AppWrapper>
     </div>

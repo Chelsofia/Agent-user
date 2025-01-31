@@ -4,7 +4,7 @@ import { ReactNode, useState } from "react";
 import AppWrapper from "@/app/components/wrapper";
 import { usePathname } from "next/navigation";
 // import { WithdrawalFilter } from "./filter/filter";
-// import SearchFilter from "@/app/components/searchfilter/SearchFilter";
+import SearchFilter from "@/app/components/searchfilter/SearchFilter";
 
 interface MilestoneLayoutProps {
   children: ReactNode;
@@ -22,11 +22,18 @@ const MilestoneLayout: React.FC<MilestoneLayoutProps> = ({ children }) => {
   ];
 
   return (
-    <AppWrapper title="Milestones"
+    <AppWrapper
+      title="Milestones"
+    
+      headerChildren={
+        <SearchFilter
+          className="lg:!w-[372px] !w-full"
+          placeholder="Search customers by name or user ID"
+        />
+      }
     >
       <div className="flex justify-between items-center">
         <div></div>
-        
       </div>
       <div>{children}</div>
     </AppWrapper>

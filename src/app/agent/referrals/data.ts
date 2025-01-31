@@ -4,7 +4,9 @@ export const referralsData = [
     subId: "A1",
     name: "Olamide John",
     type: "Registration",
-    amount: "₦200,000,000.00",
+    amount: "₦300,000",
+    duration: "6 months",
+    shares: "5",
     date: "23/04/2023 11:59PM",
     email: "olamidejohn@gmail.com",
     image: "/images/image.png",
@@ -13,6 +15,7 @@ export const referralsData = [
     paymentType: "investment",
     paymentDuration: "12 months",
     monthsLeft: 6,
+    roi: "₦300,000",
     maturityDate: "24/04/2025",
   },
   {
@@ -20,11 +23,14 @@ export const referralsData = [
     subId: "A2",
     name: "Olamide John",
     type: "Investment",
-    amount: "₦200,000,000.00",
+    amount: "₦300,000",
+    duration: "6 months",
     date: "23/04/2023 11:59PM",
+    shares: "5",
     email: "olamidejohn@gmail.com",
     image: "/images/image.png",
     event: "3 Bedroom Duplex",
+    roi: "₦300,000",
     unitsPurchased: 100, // New field: Number of units purchased
     paymentType: "Credit Card", // New field: Payment type
     paymentDuration: "12 months", // New field: Payment duration
@@ -36,11 +42,14 @@ export const referralsData = [
     subId: "A3",
     name: "Olamide John",
     type: "Properties",
-    amount: "₦200,000,000.00",
+    amount: "₦300,000",
+    duration: "6 months",
     date: "23/04/2023 11:59PM",
     email: "olamidejohn@gmail.com",
     image: "/images/image.png",
     event: "3 Bedroom Duplex",
+    shares: "5",
+    roi: "₦300,000",
     unitsPurchased: 100, // New field: Number of units purchased
     paymentType: "Credit Card", // New field: Payment type
     paymentDuration: "12 months", // New field: Payment duration
@@ -52,11 +61,14 @@ export const referralsData = [
     subId: "A4",
     name: "Rachel John",
     type: "Properties",
-    amount: "₦200,000,000.00",
+    amount: "₦300,000",
+    duration: "6 months",
     date: "23/04/2023 11:59PM",
     email: "olamidejohn@gmail.com",
     image: "/images/image.png",
     event: "3 Bedroom Duplex",
+    shares: "5",
+    roi: "₦300,000",
     unitsPurchased: 100, // New field: Number of units purchased
     paymentType: "Credit Card", // New field: Payment type
     paymentDuration: "12 months", // New field: Payment duration
@@ -69,9 +81,12 @@ export const referralsData = [
     subId: "A5",
     name: "John Doe",
     email: "john@example.com",
-    amount: "₦100,000.00",
+    amount: "₦300,000",
+    duration: "6 months",
     event: "Investment Event 1",
     type: "Investment",
+    roi: "₦300,000",
+    shares: "5",
     date: "2024-01-15",
     image: "/images/john.jpg",
     unitsPurchased: 100, // New field: Number of units purchased
@@ -85,10 +100,13 @@ export const referralsData = [
     subId: "B2",
     name: "Jane Smith",
     email: "jane@example.com",
-    amount: "₦200,000.00",
+    amount: "₦300,000",
+    duration: "6 months",
     event: "Registration Event 2",
     type: "Registration",
+    shares: "5",
     date: "2024-02-20",
+    roi: "₦300,000",
     image: "/images/jane.jpg",
     unitsPurchased: 100, // New field: Number of units purchased
     paymentType: "Credit Card", // New field: Payment type

@@ -64,7 +64,7 @@ const SettlementContent: React.FC = () => {
           className="rounded-md"
           leftIcon={<PlusIcon className="w-5 h-5" />}
         >
-          Add acount
+          Add account
         </Button>
       </div>
       <ConditionalRender isFetching={isFetching}>

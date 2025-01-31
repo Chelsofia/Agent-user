@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { VscCheck, VscFilter } from "react-icons/vsc";
-import SearchBar from "@/app/components/searchBar";
+// import SearchBar from "@/app/components/searchBar";
 import GoBackButton from "@/app/components/sidebar/GoBackButton";
 import Table from "@/app/components/tableSection";
 import man from "../../../../../public/assets/images/agent.png";
@@ -36,7 +36,17 @@ export default function Page() {
     setSearchQuery(value);
   };
 
-  const headers = ["Event", "Commission Type", "Event Date", "Actions"];
+  const headers = [
+    "Property Name",
+    "Investment Amount",
+    "Investment Duration",
+   
+    "Start Date",
+    "Maturity Date",
+    "Number of Shares",
+    "Expcted ROI",
+    "Status",
+  ];
 
   const counts = {
     All: referralsData.length,
@@ -51,27 +61,58 @@ export default function Page() {
     (ref) =>
       ref.name === referral.name && (filter === "All" || ref.type === filter));
 
-  const rows = filteredData.map((ref) => [
-    ref.event,
-    <span
-      key={ref.id}
-      className={`px-2 py-1 text-xs font-semibold rounded-full ${
-        ref.type === "Registration"
-          ? "bg-green-100 text-green-600"
-          : ref.type === "Investment"
-          ? "bg-blue-100 text-blue-600"
-          : "bg-yellow-100 text-yellow-600"
-      }`}
-    >
-      {ref.type}
-    </span>,
-    ref.date,
-    <Link key={ref.id} href={`/agent/referrals/${ref.id}/details`}>
-      <button className="text-secondary hover:underline">
-        View Investment
-      </button>
-    </Link>,
-  ]);
+ const rows = filteredData.map((ref) => [
+   ref.event,
+   ref.amount,
+   ref.duration,
+   ref.maturityDate,
+   ref.date,
+   ref.shares,
+   ref.roi,
+   <span
+     key={ref.id}
+     className={`px-2 py-1 text-xs font-semibold rounded-full ${
+       ref.type === "Registration"
+         ? "bg-green-100 text-green-600"
+         : ref.type === "Investment"
+         ? "bg-blue-100 text-blue-600"
+         : "bg-yellow-100 text-yellow-600"
+     }`}
+   >
+     {ref.type}
+   </span>,
+   
+   <Link key={ref.id} href={`/agent/referrals/${ref.id}/details`}>
+     
+   </Link>,
+ ]);
+
+// const rows = filteredData.map((ref) => [
+//   <Link key={ref.id} href={`/agent/referrals/${ref.id}/details`}>
+//     <div className="flex items-center justify-between py-2">
+//       <div>{ref.event}</div>
+//       <div>{ref.amount}</div>
+//       <div>{ref.duration}</div>
+//       <div>{ref.maturityDate}</div>
+//       <div>{ref.date}</div>
+//       <div>{ref.shares}</div>
+//       <div>{ref.roi}</div>
+//       <div
+//         className={`px-2 py-1 text-xs font-semibold rounded-full ${
+//           ref.type === "Registration"
+//             ? "bg-green-100 text-green-600"
+//             : ref.type === "Investment"
+//             ? "bg-blue-100 text-blue-600"
+//             : "bg-yellow-100 text-yellow-600"
+//         }`}
+//       >
+//         {ref.type}
+//       </div>
+//     </div>
+//   </Link>,
+// ]);
+
+
 
   return (
     <div className="px-4">
@@ -100,11 +141,11 @@ export default function Page() {
         <hr className="absolute bottom-0 left-0 w-16 border-black" />
       </div>
 
-     <div className="flex flex-col md:flex-row gap-4 justify-center mt-4">
+     <div className="flex flex-col md:flex-row gap-4  mt-4">
   <div className="bg-white p-4 rounded-md border w-full md:w-[45%] flex flex-col justify-between h-[150px]">
     <p className="text-xs text-[#667185]">Total investments</p>
     <h2 className="text-xl text-[#667185] font-bold mt-auto">
-      ₦3,000,000.00
+      ₦100.00
     </h2>
   </div>
   <div className="bg-white p-4 rounded-md border w-full md:w-[45%] flex flex-col justify-between h-[150px]">
@@ -116,13 +157,10 @@ export default function Page() {
 </div>
 
 
-      <div className="mt-4 flex gap-4 justify-center">
-        <SearchBar
-          onChange={handleSearchChange}
-          placeholder="Search customers by name or user ID"
-        />
+      <div className="mt-4 flex gap-4 w-[600px]">
+       
 
-        {["All", "Registration", "Investment", "Purchase"].map((type) => (
+        {/* {["All", "Registration", "Investment", "Purchase"].map((type) => (
           <button
             key={type}
             onClick={() =>
@@ -147,9 +185,9 @@ export default function Page() {
               {counts[type as keyof typeof counts]}
             </div>
           </button>
-        ))}
+        ))} */}
 
-        <button
+        {/* <button
           onClick={() => setFilter("All")}
           className={`flex items-center text-sm px-2 py-1 rounded border ${
             filter === "All"
@@ -159,7 +197,7 @@ export default function Page() {
         >
           <VscFilter className="mr-1" />
           <span className="mr-1">Filter</span>
-        </button>
+        </button> */}
       </div>
 
       <Table headers={headers} rows={rows} />

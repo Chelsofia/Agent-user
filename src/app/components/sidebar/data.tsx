@@ -17,7 +17,7 @@ export const navItems = [
     icon: <CogIcon className="w-5 h-5" />,
   },
   {
-    title: "Refferals",
+    title: "Referrals",
     to: "/agent/referrals",
     icon: <TbUserCircle className="w-5 h-5" />,
   },
@@ -29,7 +29,7 @@ export const navItems = [
 
   {
     title: "Withdrawals",
-    to: "/agent/earnings",
+    to: "/agent/withdrawals",
     icon: <TbWallet className="w-5 h-5" />,
   },
   {

@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <AppWrapper>
+      <AppWrapper title="Dashboard">
       
           <div className="min-h-screen mt-4 p-8 bg-gray-50">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
