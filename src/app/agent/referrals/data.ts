@@ -11,10 +11,13 @@ export const referralsData = [
     email: "olamidejohn@gmail.com",
     image: "/images/image.png",
     event: "3 Bedroom Duplex",
-    unitsPurchased: 100,
+    unit: "1",
+    purchaseType: "Outright purchase",
     paymentType: "investment",
-    paymentDuration: "12 months",
-    monthsLeft: 6,
+    paymentDuration: "0",
+    monthsLeft: "0",
+    monthsPaid: "0",
+    status: "Active",
     roi: "₦300,000",
     maturityDate: "24/04/2025",
   },
@@ -31,17 +34,20 @@ export const referralsData = [
     image: "/images/image.png",
     event: "3 Bedroom Duplex",
     roi: "₦300,000",
-    unitsPurchased: 100, // New field: Number of units purchased
+    status: "Completed",
+    purchaseType: "Installment purchase",
+    unit: "3", // New field: Number of units purchased
     paymentType: "Credit Card", // New field: Payment type
     paymentDuration: "12 months", // New field: Payment duration
-    monthsLeft: 6, // New field: Months left
+    monthsLeft: "12 months",
+    monthsPaid: "12 months", // New field: Months left
     maturityDate: "24/04/2025",
   },
   {
     id: "54321",
     subId: "A3",
     name: "Olamide John",
-    type: "Properties",
+    type: "Purchase",
     amount: "₦300,000",
     duration: "6 months",
     date: "23/04/2023 11:59PM",
@@ -50,17 +56,20 @@ export const referralsData = [
     event: "3 Bedroom Duplex",
     shares: "5",
     roi: "₦300,000",
-    unitsPurchased: 100, // New field: Number of units purchased
+    status: "Active",
+    purchaseType: "Installment purchase",
+    unit: "2", // New field: Number of units purchased
     paymentType: "Credit Card", // New field: Payment type
-    paymentDuration: "12 months", // New field: Payment duration
-    monthsLeft: 6, // New field: Months left
+    paymentDuration: "6 months",
+    monthsPaid: "6 months", // New field: Payment duration
+    monthsLeft: "6 months", // New field: Months left
     maturityDate: "24/04/2025",
   },
   {
     id: "55321",
     subId: "A4",
     name: "Rachel John",
-    type: "Properties",
+    type: "Purchase",
     amount: "₦300,000",
     duration: "6 months",
     date: "23/04/2023 11:59PM",
@@ -69,10 +78,13 @@ export const referralsData = [
     event: "3 Bedroom Duplex",
     shares: "5",
     roi: "₦300,000",
-    unitsPurchased: 100, // New field: Number of units purchased
+    purchaseType: "Outright purchase",
+    status: "Completed",
+    unit: "1", // New field: Number of units purchased
     paymentType: "Credit Card", // New field: Payment type
-    paymentDuration: "12 months", // New field: Payment duration
-    monthsLeft: 6, // New field: Months left
+    paymentDuration: "0", // New field: Payment duration
+    monthsLeft: "0",
+    monthsPaid: "0", // New field: Months left
     maturityDate: "24/04/2025",
   },
 
@@ -86,13 +98,16 @@ export const referralsData = [
     event: "Investment Event 1",
     type: "Investment",
     roi: "₦300,000",
+    status: "Completed",
     shares: "5",
-    date: "2024-01-15",
+    date: "2024-01-15 11:59PM",
+    purchaseType: "Outright purchase",
     image: "/images/john.jpg",
-    unitsPurchased: 100, // New field: Number of units purchased
+    unit: "2", // New field: Number of units purchased
     paymentType: "Credit Card", // New field: Payment type
-    paymentDuration: "12 months", // New field: Payment duration
-    monthsLeft: 6, // New field: Months left
+    paymentDuration: "3 months", // New field: Payment duration
+    monthsLeft: "3 months",
+    monthsPaid: "3 months", // New field: Months left
     maturityDate: "24/04/2025",
   },
   {
@@ -105,13 +120,16 @@ export const referralsData = [
     event: "Registration Event 2",
     type: "Registration",
     shares: "5",
-    date: "2024-02-20",
+    date: "2024-02-20 11:59PM",
     roi: "₦300,000",
+    status: "Active",
     image: "/images/jane.jpg",
-    unitsPurchased: 100, // New field: Number of units purchased
+    purchaseType: "Outright purchase",
+    unit: "2", // New field: Number of units purchased
     paymentType: "Credit Card", // New field: Payment type
-    paymentDuration: "12 months", // New field: Payment duration
-    monthsLeft: 6, // New field: Months left
+    paymentDuration: "3 months",
+    monthsPaid: "6 months",
+    monthsLeft: "6 months", // New field: Months left
     maturityDate: "24/04/2025",
   },
 ];

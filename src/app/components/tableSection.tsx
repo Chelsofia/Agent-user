@@ -1,5 +1,4 @@
 import React, { JSX } from "react";
-import ProgressBar from "./progressbar";
 
 type TableProps = {
   headers: string[];
@@ -8,21 +7,19 @@ type TableProps = {
   title?: string;
 };
 
-const Table: React.FC<TableProps> = ({ headers, rows, title, progress }) => {
+const Table: React.FC<TableProps> = ({ headers, rows, progress, title }) => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md max-w-full mb-2">
+    <div className="p-6 bg-white rounded-lg shadow-md">
       {progress && (
         <div className="bg-primary text-white p-4 mb-6 rounded-md">
-          <p className="text-sm sm:text-xs py-2 text-center sm:text-left">
+          <p className="text-sm py-2 text-center">
             Progress milestone for {title}
           </p>
-          <ProgressBar progress={progress} />
         </div>
       )}
 
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
-          {/* Header */}
           <thead className="bg-gray-50">
             <tr>
               {headers.map((header, index) => (
@@ -35,41 +32,9 @@ const Table: React.FC<TableProps> = ({ headers, rows, title, progress }) => {
               ))}
             </tr>
           </thead>
-
-          {/* Body */}
           <tbody className="bg-white divide-y divide-gray-200">
             {rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className="sm:hidden">
-                {/* Mobile: Show first and last columns normally */}
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
-                  {row[0]}
-                </td>
-
-                {/* Mobile: Show middle columns as list */}
-                {row.slice(1, row.length - 1).map((cell, cellIndex) => (
-                  <td
-                    key={`extra-column-${cellIndex}`}
-                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-700"
-                  >
-                    <div className="sm:hidden flex flex-col">
-                      <span className="font-semibold">
-                        {headers[cellIndex + 1]}:
-                      </span>
-                      {cell}
-                    </div>
-                  </td>
-                ))}
-
-                {/* Mobile: Show last column normally */}
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
-                  {row[row.length - 1]}
-                </td>
-              </tr>
-            ))}
-
-            {/* Desktop and larger: Show the normal table format */}
-            {rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className="hidden sm:table-row">
+              <tr key={rowIndex}>
                 {row.map((cell, cellIndex) => (
                   <td
                     key={cellIndex}

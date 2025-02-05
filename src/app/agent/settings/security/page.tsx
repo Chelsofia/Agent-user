@@ -22,7 +22,7 @@ const SecurityContent: React.FC = () => {
   };
 
   return (
-    <div className="w-[500px] mx-auto bg-white shadow-md p-6">
+    <div className="w-full sm:w-[500px] mx-auto bg-white shadow-md p-6 sm:px-6">
       <h2 className="font-bold">Change password</h2>
       <p>Please enter your current password to change your password.</p>
       <br />
@@ -72,7 +72,7 @@ const SecurityContent: React.FC = () => {
           error={errors.confirmPassword && "Passwords do not match"}
         />
         <div className="flex gap-4 mt-4 justify-end">
-          <Button className="rounded-md" type="submit">
+          <Button className="rounded-md w-full sm:w-auto" type="submit">
             Update Password
           </Button>
         </div>
@@ -87,7 +87,7 @@ const SecurityContent: React.FC = () => {
 
           <Button
             onClick={() => showModal(false)}
-            className="mt-4 rounded-md w-[80%] py-3"
+            className="mt-4 rounded-md w-[80%] sm:w-auto py-3"
           >
             Done
           </Button>

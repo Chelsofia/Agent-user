@@ -211,7 +211,6 @@ export default function WalletPage() {
                 </button>
               </div>
 
-              {/* Move the Filter button to the right */}
               <div className="ml-auto">
                 <button
                   onClick={() => handleFilterChange("Filter")}
@@ -237,9 +236,10 @@ export default function WalletPage() {
           </div>
 
           <Modal open={isModalOpen} setOpen={setIsModalOpen}>
-            <Heading className="ml-16 text-secondary">
-              Transaction Details
-            </Heading>
+            <div className="flex justify-center items-center mt-4">
+              <Heading className="text-secondary">Transaction Details</Heading>
+            </div>
+
             {selectedTransaction && (
               <div className="p-4">
                 <div className="border-b border-gray-200 pb-4 mb-4">
@@ -288,17 +288,17 @@ export default function WalletPage() {
                   </div>
                 </div>
 
-                <div className="flex justify-between mt-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-2 mt-4">
                   <button
                     onClick={() => {}}
-                    className="bg- text-primary border border-primary py-2 px-4 rounded"
+                    className="bg-transparent text-primary border border-primary py-2 px-4 rounded w-full sm:w-auto"
                   >
                     Share Receipt
                   </button>
 
                   <button
                     onClick={() => {}}
-                    className="bg-primary text-white py-2 px-4 rounded"
+                    className="bg-primary text-white py-2 px-4 rounded w-full sm:w-auto"
                   >
                     Download Receipt
                   </button>

@@ -10,7 +10,7 @@ import Table from "../../components/tableSection";
 import { referralsData } from "./data";
 
 const Referrals = () => {
-  const [filter, setFilter] = useState<string>("Registration");
+  const [filter, setFilter] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [progress, setProgress] = useState<string>("50");
 
@@ -49,21 +49,30 @@ const Referrals = () => {
         item.name.toLowerCase().includes(searchQuery) ||
         item.id.toLowerCase().includes(searchQuery));
 
-  const rows = filteredData.map((item, index) => [
-    <Link
-      key={item.id}
-      href={`/referrals/${item.id}`}
-      className=" hover:underline"
-    >
-      {item.name}
-    </Link>,
-    <Badge key={item.id} status={mapStatusToBadgeStatus(item.type)}>
-                  {item.type}
-                </Badge>,
-    item.date,
-    <Link key={index} href={`/agent/referrals/${item.id}`}>
-      <button className="text-secondary font-bold hover:underline">View More</button>
-    </Link>,]);
+const rows = filteredData.map((item, index) => [
+  <Link
+    key={index}
+    href={`/referrals/type/${item.type.toLowerCase()}`}
+    className="hover:underline"
+  >
+    {item.name}
+  </Link>,
+
+  <Badge key={`type-${index}`} status={mapStatusToBadgeStatus(item.type)}>
+    {item.type}
+  </Badge>,
+
+  item.date,
+
+  <Link
+    key={`view-${index}`}
+    href={`/agent/referrals/type/${item.type.toLowerCase()}`}
+  >
+    <button className="text-secondary font-bold hover:underline">
+      View More
+    </button>
+  </Link>,
+]);
 
  
   const counts = {
@@ -78,6 +87,8 @@ const Referrals = () => {
 
   return (
     <div className=" px-4 ">
+
+      
       <div className="my-7 flex justify-between items-center gap-2">
         <div className="flex flex-wrap gap-4 md:gap-6 md:flex-nowrap">
           <button
@@ -181,7 +192,6 @@ const Referrals = () => {
           </button>
         </div>
 
-        {/* Move Filter Button to the Right */}
         <button
           onClick={() => handleFilterChange("Filter")}
           className={`flex items-center text-sm px-3 py-2 rounded border ${

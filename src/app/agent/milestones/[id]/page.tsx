@@ -4,7 +4,7 @@ import GoBackButton from "@/app/components/sidebar/GoBackButton";
 export default function Home() {
   return (
     <main className="px-4 sm:px-6 md:px-8">
-      <GoBackButton />
+      <GoBackButton pageTitle = "Milestones" />
       <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl ml-4">
         Sales Performance
       </h1>
