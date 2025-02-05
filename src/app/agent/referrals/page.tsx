@@ -10,7 +10,7 @@ import Table from "../../components/tableSection";
 import { referralsData } from "./data";
 
 const Referrals = () => {
-  const [filter, setFilter] = useState<string>("Registration");
+  const [filter, setFilter] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [progress, setProgress] = useState<string>("50");
 

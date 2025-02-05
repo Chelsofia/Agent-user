@@ -14,7 +14,7 @@ const Navbar = ({ setOpen }: NavbarProps) => {
   return (
     <div>
      
-      <h1 className="text-[#FF8C00] text-xs">GET STARTED</h1>
+      <h1 className="text-[#FF8C00] text-xs pl-3">GET STARTED</h1>
       {navItems.map((item, i) => (
         <div key={i} className="mb-4">
           <div className="space-y-1 text-white mt-1">
@@ -28,8 +28,8 @@ const Navbar = ({ setOpen }: NavbarProps) => {
               <span className="block">{item.icon}</span>
               <span className="block">{item.title}</span>
             </Link>
-            {i === 1 && <h1 className="text-[#FF8C00] pt-4 text-xs">USERS</h1>}
-            {i === 3 && <h1 className="text-[#FF8C00] pt-4 text-xs">CASH FLOW</h1>}
+            {i === 1 && <h1 className="text-[#FF8C00] pt-4 text-xs pl-3">USERS</h1>}
+            {i === 3 && <h1 className="text-[#FF8C00] pt-4 text-xs pl-3">CASH FLOW</h1>}
           </div>
         </div>
       ))}

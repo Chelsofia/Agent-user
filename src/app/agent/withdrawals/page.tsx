@@ -169,9 +169,9 @@ const Earnings = () => {
         <Modal>
           {selectedItem && (
             <>
-              <Heading className="ml-24 text-secondary">
-                Withdrawal Details
-              </Heading>
+              <div className="flex justify-center items-center mt-4">
+                <Heading className="text-secondary">Withdrawal Details</Heading>
+              </div>
 
               <div className="p-4">
                 <div className="border-b border-gray-200 pb-4 mb-4">
@@ -232,17 +232,17 @@ const Earnings = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-between mt-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-2 mt-4">
                   <button
                     onClick={() => {}}
-                    className="bg- text-primary border border-primary py-2 px-4 rounded"
+                    className="bg-transparent text-primary border border-primary py-2 px-4 rounded w-full sm:w-auto"
                   >
                     Share Receipt
                   </button>
 
                   <button
                     onClick={() => {}}
-                    className="bg-primary text-white py-2 px-4 rounded"
+                    className="bg-primary text-white py-2 px-4 rounded w-full sm:w-auto"
                   >
                     Download Receipt
                   </button>

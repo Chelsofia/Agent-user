@@ -22,7 +22,7 @@ const Sidebar = ({ open, setOpen, org }: SidebarProps) => {
 
   return (
     <nav
-      className={`bg-primary w-[250px] duration-[0.5s] fixed top-0 ${
+      className={`bg-primary w-[230px] duration-[0.5s] fixed top-0 ${
         open ? "left-0" : "-left-[300px]"
       } lg:left-0 z-[10] h-full`}
     >
@@ -39,8 +39,8 @@ const Sidebar = ({ open, setOpen, org }: SidebarProps) => {
           className="fixed -z-10 top-0 lg:hidden block left-0 w-full h-full bg-[#0000007c]"
         />
       )}
-      <div className="px-5 py-8"></div>
-      <div className="px-5 h-[300px] overflow-x-hidden overflow-y-auto side">
+      <div className="px-5 py-4"></div>
+      <div className="px-5 h-[400px] overflow-x-hidden overflow-y-auto side">
         <Navbar setOpen={setOpen} />
       </div>
 
@@ -48,17 +48,19 @@ const Sidebar = ({ open, setOpen, org }: SidebarProps) => {
         onClick={() => showModal(true)}
         className="mt-auto cursor-pointer p-5 flex items-center justify-between bg-navy-900"
       >
-        <div className="flex items-center py-12 space-x-3">
-          <div className="flex items-center justify-center w-10 h-10 bg-pink-100 rounded-full">
+        <div className="flex items-center py-4 space-x-3">
+          <div className="flex items-center justify-center w-8 h-8 bg-pink-100 rounded-full">
             <span className="text-black font-bold">OM</span>
           </div>
           <div className="flex flex-col">
-            <p className="text-white font-semibold">Omawunmi</p>
-            <p className="text-gray-400 text-sm">Oma@rayna.ui</p>
+            <p className="text-white font-semibold text-xs">Omawunmi</p>
+            <p className="text-gray-400 text-xs">Oma@rayna.ui</p>
+          </div>
+          <div className="pl-5">
+            <FaArrowRightFromBracket className="w-4 h-4 text-white" />
           </div>
         </div>
-  
-        <FaArrowRightFromBracket className="w-5 h-5 text-white" />
+
         <Modal>
           <div className="flex flex-col justify-center gap-6 mt-8">
             <Heading>Are you sure you want to logout?</Heading>

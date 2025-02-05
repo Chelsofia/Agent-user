@@ -19,6 +19,8 @@ export default function Page() {
   const [filter, setFilter] = useState<
     "All" | "Registration" | "Investment" | "Purchase"
   >("All");
+    const [searchQuery, setSearchQuery] = useState<string>("");
+    const [progress, setProgress] = useState<string>("50");
 
   // Set referral to the first item in the data or null if empty
   const referral = referralsData.length > 0 ? referralsData[0] : null;
@@ -38,8 +40,7 @@ export default function Page() {
     "Status",
   ];
 
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [progress, setProgress] = useState<string>("50");
+
 
 const handleFilterChange = (
   newFilter: "All" | "Registration" | "Investment" | "Purchase"
@@ -81,16 +82,15 @@ const handleFilterChange = (
     <span
       key={ref.id}
       className={`px-2 py-1 text-xs font-semibold rounded-full ${
-        ref.type === "Registration"
-          ? "bg-green-100 text-green-600"
-          : ref.type === "Investment"
-          ? "bg-blue-100 text-blue-600"
+        ref.status === "Active"
+          ? "bg-[#E7F6EC] text-[#099137]"
+          : ref.status === "Completed"
+          ? "bg-[#D6D9DD] text-[#344054BF]"
           : "bg-yellow-100 text-yellow-600"
       }`}
     >
       {ref.status}
     </span>,
-   
   ]);
 
   return (
