@@ -7,16 +7,16 @@ type BadgeProps = {
 };
 
 const badgeStyles: Record<string, string> = {
-  registration: "text-green-700 bg-green-50 ring-green-600/20 bg-green-100",
-  investment: "text-blue-700 bg-blue-50 ring-blue-600/10 bg-blue-100",
-  properties: "text-yellow-700 bg-yellow-50 ring-yellow-600/10 bg-yellow-100",
+  registration: "text-[#1DA01D] bg-[#E7F6EC] ring-green-600/20 bg-green-100",
+  investment: "text-[#11ABDC] bg-[#E7F7FB] ring-blue-600/10 bg-blue-100",
+  purchase: "text-[#FF8C00] bg-[#FFECE5] ring-yellow-600/10 bg-yellow-100",
   default: "text-gray-700 bg-gray-50 ring-gray-600/10 bg-gray-100",
 };
 
 const statusStyles: Record<string, string> = {
-  success: "text-green-700 bg-green-50 ring-green-600/20 bg-green-100",
+  success: "text-[#1DA01D] bg-green-50 ring-green-600/20 bg-green-100",
   failed: "text-red-700 bg-red-50 ring-red-600/20 bg-red-100",
-  pending: "text-orange-700 bg-orange-50 ring-orange-600/20 bg-orange-100",
+  pending: "text-[#FF8C00] bg-[#FFECE5] ring-orange-600/20 bg-orange-100",
 };
 
 export const Badge: FC<BadgeProps> = ({ children, status }) => {

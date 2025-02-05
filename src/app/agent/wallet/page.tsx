@@ -211,7 +211,7 @@ export default function WalletPage() {
                 </button>
               </div>
 
-              {/* Move the Filter button to the right */}
+            
               <div className="ml-auto">
                 <button
                   onClick={() => handleFilterChange("Filter")}
