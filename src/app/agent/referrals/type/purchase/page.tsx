@@ -90,9 +90,7 @@ const handleFilterChange = (
     >
       {ref.status}
     </span>,
-    // <Link key={ref.id} href={`/agent/referrals/${ref.id}/details`}>
-    //   View Details
-    // </Link>,
+   
   ]);
 
   return (
